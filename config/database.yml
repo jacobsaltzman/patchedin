@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: patchedin_production
-  username: patchedin
-  password: <%= ENV["PATCHEDIN_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
