@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  before_action :authorize
   #cookie functionality on the top level
   include ActionController::Cookies
   #catch the error and then process it with custom private method below
@@ -9,7 +10,10 @@ class ApplicationController < ActionController::API
   private
 
   def authorize
-    #see if user exists via session
+    #make an instance variable to hold session user
+    @current_user = User.find_by(id: session[:user_id])
+    #if no current user, then render error message
+    render json: {errors: ["Not Authorized"]}, status: unauthorized unless @current_user
   end
 
   #method to render error messages from the rescue_from error catch
