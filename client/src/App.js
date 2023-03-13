@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from "react-router-dom"
 import './App.css';
 import Home from './Components/Home';
+import Navigation from './Components/Navigation';
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>Header</header>
+      <Navigation/>
       <div className='App-Body'>
         <Routes>
           <Route 
