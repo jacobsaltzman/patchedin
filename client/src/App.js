@@ -4,6 +4,9 @@ import './App.css';
 import Home from './Components/Home';
 import Navigation from './Components/Navigation';
 import Footer from './Components/Footer';
+import About from './Components/About';
+import SignUp from './Components/Signup';
+import Login from './Components/Login';
 
 function App() {
 
@@ -20,7 +23,18 @@ function App() {
           path='/'
           element={<Home/>}
           />
-
+          <Route
+          path='/signup'
+          element={<SignUp />}
+          />
+          <Route
+            path='/login'
+            element={<Login />}
+          />
+          <Route
+            path='/about'
+            element={<About />}
+          />
         </Routes>
         <div className='footer mt-auto'>
         <Footer/>
