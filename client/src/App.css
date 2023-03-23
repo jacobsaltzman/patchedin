@@ -8,3 +8,18 @@
   height: 50px; 
 
 }
+
+.ml-auto.navbar-nav{
+  margin: auto;
+  display: flex;
+  position: relative;
+  margin-right: 5px;
+}
+
+.ml-auto.navbar-nav a{
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
