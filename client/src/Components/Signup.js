@@ -61,7 +61,7 @@ function SignUp() {
         <button type='submit'>Join!</button>
       </form>
       {errors? errors.map(error => <div> {error[0]} {error[1]} </div>) :null}
-      <h6>Already a member? <Link to="/login">Login</Link></h6>
+      <h6>Already PatchedIn? <Link to="/login">Login</Link></h6>
 
         </div>
       </div>
