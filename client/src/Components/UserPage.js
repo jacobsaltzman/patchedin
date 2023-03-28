@@ -13,7 +13,7 @@ function UserPage(){
   return(
     <div id='current-user-header'>
     <h3>{currentUser.username}</h3>
-    
+    <p>Member since {currentUser.creationDate}</p>
     
     </div>
   )
