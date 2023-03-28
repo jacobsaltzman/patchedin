@@ -1,12 +1,14 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
+import ProjectCreate from './ProjectCreate';
 
 
-function ProjectList(props) {
+function ProjectList({props, onAddProject, setErrors}) {
   const { projects } = props;
 
   return (
-    <div className="project-list">
+    <div className="project-page">
+      <ProjectCreate onAddProject={onAddProject} setErrors={setErrors} />
       {projects ?
       projects.map(project => (
         <ProjectCard

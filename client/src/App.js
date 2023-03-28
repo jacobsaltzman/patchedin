@@ -54,6 +54,11 @@ function App() {
   }, []);
 
 
+  function onAddProject(newProject){
+    setProjects([...projects, newProject])
+  }
+
+
   return (
     <div className="App">
       <Navigation/>
@@ -81,7 +86,7 @@ function App() {
           />
           <Route
             path='/projects'
-            element={<ProjectList props={projects}/>}
+            element={<ProjectList props={projects} onAddProject={onAddProject} setErrors={setErrors}/>}
           />
         </Routes>
           <div className='footer mt-auto'>
