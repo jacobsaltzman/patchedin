@@ -1,9 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-function ProjectCard(props) {
-  const { id, title, description, type, progress } = props;
-
+function ProjectCard({id, title, description, type, progress}) {
+  
   console.log(type, progress)
   //also add creator user data
 

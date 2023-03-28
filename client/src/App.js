@@ -9,13 +9,16 @@ import SignUp from './Components/Signup';
 import Login from './Components/Login';
 import UserPage from './Components/UserPage';
 import { UserContext } from './context/user';
+import ProjectList from './Components/Projects/ProjectList'
+
 
 function App() {
 
   const { setCurrentUser } = useContext(UserContext);
   const [errors, setErrors] = useState(false);
+  const [projects, setProjects] = useState([]);
 
-  console.log(errors + " line 17")
+  console.log("errors:" + errors + " projects: " + projects)
 
   useEffect(() => {
     // auto-login
@@ -40,7 +43,7 @@ function App() {
       if(res.ok){
         res.json()
         .then((data) =>{
-          console.log(data)
+          setProjects(data)
           setErrors(false)
         })
       }else {
@@ -75,6 +78,10 @@ function App() {
           <Route
             path='/about'
             element={<About />}
+          />
+          <Route
+            path='/projects'
+            element={<ProjectList props={projects}/>}
           />
         </Routes>
           <div className='footer mt-auto'>

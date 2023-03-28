@@ -7,7 +7,8 @@ function ProjectList(props) {
 
   return (
     <div className="project-list">
-      {projects.map(project => (
+      {projects ?
+      projects.map(project => (
         <ProjectCard
           id={project.id}
           key={project.id}
@@ -16,7 +17,10 @@ function ProjectList(props) {
           type={project.type}
           progress={project.progress}
         />
-      ))}
+      ))
+        :<h3>No projects yet.</h3>}
+
+
     </div>
   );
 }
