@@ -8,14 +8,20 @@ import { UserContext } from '../../context/user';
 function ProjectCreate({onAddProject, setErrors}){
 
   const {currentUser} = useContext(UserContext);
+  let id = null;
+  if(currentUser){
+    id = currentUser.id
+  }
   const nav = useNavigate();
   const[formData, setFormData] = useState({
     title: "",
     progress: 0,
     category: "",
     description: "",
-    user_id: currentUser.id
+    user_id: id
   })
+
+  console.log(id)
 
   function handleChange(e) {
     const {name, value} = e.target;
@@ -48,8 +54,7 @@ function ProjectCreate({onAddProject, setErrors}){
           nav(`/projects/${data.id}`)
         })
     }else {
-      r.json().then((err) => setErrors(err.errors));
-      console.log(err)
+      r.json().then((err) => setErrors(err));
     }
     })
   };

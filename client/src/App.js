@@ -18,7 +18,8 @@ function App() {
   const [errors, setErrors] = useState(false);
   const [projects, setProjects] = useState([]);
 
-  console.log("errors:" + errors + " projects: " + projects)
+  console.log("errors:")
+  console.log(errors)
 
   useEffect(() => {
     // auto-login
