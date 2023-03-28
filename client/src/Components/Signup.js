@@ -9,7 +9,6 @@ function SignUp() {
 
     const [formData, setFormData] = useState({
         username:'',
-        email:'',
         password:''
     })
     const [errors, setErrors] = useState([])

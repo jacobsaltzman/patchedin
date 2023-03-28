@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import About from './Components/About';
 import SignUp from './Components/Signup';
 import Login from './Components/Login';
+import UserPage from './Components/UserPage';
 import { UserContext } from './context/user';
 
 function App() {
@@ -67,14 +68,18 @@ function App() {
             path='/login'
             element={<Login />}
           />
+          <Route 
+        path='/users/:id'
+        element={<UserPage />}
+          />
           <Route
             path='/about'
             element={<About />}
           />
         </Routes>
-        <div className='footer mt-auto'>
-        <Footer/>
-        </div>
+          <div className='footer mt-auto'>
+          <Footer/>
+          </div>
       </div>
 
     </div>
