@@ -36,6 +36,6 @@ class ContributionsController < ApplicationController
   private
 
   def contribution_params
-    params.permit(:user_id, :task_id, :type, :report)
+    params.permit(:user_id, :task_id, :report)
   end
 end

@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   private
   #strong params
   def project_params
-    params.permit(:title, :description, :progress, :type, :user_id)
+    params.permit(:title, :description, :progress, :category, :user_id)
   end
 
 end

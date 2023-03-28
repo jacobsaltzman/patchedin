@@ -71,7 +71,7 @@ function ProjectCreate({onAddProject, setErrors}){
         <input type="text" id="title" name="title" onChange={handleChange} value={formData.title}/>
 
         <label>What Type Of Project Is It?</label>
-        <select name="type" id="category" onChange={handleChange} value={formData.category}>
+        <select name="category" id="category" onChange={handleChange} value={formData.category}>
           <option>Select One</option>
           <option value="tech">Tech</option>
           <option value="creative">Creative</option>

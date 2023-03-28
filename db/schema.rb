@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_012834) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_28_191036) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contributions", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "task_id", null: false
-    t.string "type"
     t.string "report"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,9 +29,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_012834) do
     t.string "title"
     t.text "description"
     t.integer "progress"
-    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

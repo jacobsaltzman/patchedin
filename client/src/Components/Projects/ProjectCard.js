@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-function ProjectCard({id, title, description, type, progress}) {
+function ProjectCard({id, title, description, category, progress}) {
   
-  console.log(type, progress)
+  console.log(category, progress)
   //also add creator user data
 
   return (

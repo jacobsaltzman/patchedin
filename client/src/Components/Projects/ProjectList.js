@@ -16,7 +16,7 @@ function ProjectList({props, onAddProject, setErrors}) {
           key={project.id}
           title={project.title}
           description={project.description}
-          type={project.type}
+          category={project.category}
           progress={project.progress}
         />
       ))
