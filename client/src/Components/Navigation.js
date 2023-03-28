@@ -1,10 +1,23 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, {useContext} from "react";
+import { UserContext } from "../context/user";
+import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 
 
 function Navigation(){
+
+  const nav = useNavigate();
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+
+  const handleLogout = () => {
+    fetch('/logout', {
+      method: 'DELETE'
+    })
+    setCurrentUser(false)
+    nav(`/`)
+    };
 
   return(
 <Navbar bg="light" expand="lg" collapseOnSelect>
@@ -24,14 +37,18 @@ function Navigation(){
           <NavDropdown.Item as={Link} to="/projects">All Projects</NavDropdown.Item>
         </NavDropdown>
 
-      
+        {!currentUser ? 
         <Nav className="ml-auto">
           <Nav.Link as={Link} to="/signup" className="btn btn-primary">Sign up</Nav.Link>
           <Nav.Link as={Link} to="/login" className="btn btn-outline-primary">Log in</Nav.Link>
         </Nav>
-    
+         : null}
     </Nav>
   </Navbar.Collapse>
+
+  {!currentUser?<h6 id="no-user">Sign up or Login to continue!</h6>:""}
+  {currentUser ? <div><Link to={`/users/${currentUser.id}`}>Account</Link><div id="user-greeting"><h6>Welcome, {currentUser.username}</h6></div>   <div id="logout-button"><button onClick={handleLogout}>Log Out</button> </div></div>: null}
+
 </Navbar>
   )
 }
