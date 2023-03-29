@@ -30,19 +30,20 @@ function Navigation(){
 
         <Nav.Link as={Link} to="/" className="text-dark mr-3">Home</Nav.Link>
         <Nav.Link as={Link} to="/about" className="text-dark mr-3">About</Nav.Link>
-        <NavDropdown title="Projects" id="basic-nav-dropdown" className="text-dark mr-3">
-          <NavDropdown.Item as={Link} to="/projects/me">My Projects</NavDropdown.Item>
-          <NavDropdown.Item as={Link} to="/contributions">My Contributions</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item as={Link} to="/projects">All Projects</NavDropdown.Item>
-        </NavDropdown>
+        
 
         {!currentUser ? 
         <Nav className="ml-auto">
           <Nav.Link as={Link} to="/signup" className="btn btn-primary">Sign up</Nav.Link>
           <Nav.Link as={Link} to="/login" className="btn btn-outline-primary">Log in</Nav.Link>
         </Nav>
-         : null}
+         :
+         <NavDropdown title="Projects" id="basic-nav-dropdown" className="text-dark mr-3">
+          <NavDropdown.Item as={Link} to="/projects/me">My Projects</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/contributions">My Contributions</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item as={Link} to="/projects">All Projects</NavDropdown.Item>
+        </NavDropdown>}
     </Nav>
   </Navbar.Collapse>
 
