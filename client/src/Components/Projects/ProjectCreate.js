@@ -54,7 +54,7 @@ function ProjectCreate({onAddProject, setErrors}){
           nav(`/projects/${data.id}`)
         })
     }else {
-      r.json().then((err) => setErrors(err));
+      r.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
     }
     })
   };

@@ -63,6 +63,7 @@ function App() {
   return (
     <div className="App">
       <Navigation/>
+      {errors?errors.map(e => <h6 style={{color:'red'}}>{e.toUpperCase()}</h6>):null}
       <div className='d-flex flex-column vh-100'>
         <Routes>
           <Route 
@@ -90,6 +91,7 @@ function App() {
             element={<ProjectList props={projects} onAddProject={onAddProject} setErrors={setErrors}/>}
           />
         </Routes>
+        
           <div className='footer mt-auto'>
           <Footer/>
           </div>
