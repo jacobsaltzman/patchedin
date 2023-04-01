@@ -25,7 +25,7 @@
 
 }
 
-.about{
+.about-first, .about-second{
   justify-content: center;
   margin: auto;
   margin-left: 15%;
@@ -163,6 +163,15 @@
     margin-right: auto;
 }
 
+.project-list-container{
+  background-image: url(./images/mat.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
 /* for use in the upcoming task part
 .task-card:nth-child(even){
   background: #cfc;
@@ -213,4 +222,24 @@
   width: 100%;
   text-align: center;
   padding: 50px;
+}
+
+#project-tasks{
+  background-image: url(./images/cork.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
+.background-2{
+  background-image: url(./images/spools.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  position: relative;
 }
