@@ -63,7 +63,7 @@ function ProjectCreate({onAddProject, setErrors}){
   return(
     <div id='create-project'>
       
-    <form classtitle="new-project-form" onSubmit={handleSubmit}>
+    <form className="new-project-form" onSubmit={handleSubmit}>
       
         <h4>Create A New Project</h4>
 
