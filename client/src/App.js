@@ -10,6 +10,7 @@ import Login from './Components/Login';
 import UserPage from './Components/UserPage';
 import { UserContext } from './context/user';
 import ProjectList from './Components/Projects/ProjectList'
+import ProjectPage from './Components/Projects/ProjectPage';
 
 
 function App() {
@@ -88,6 +89,11 @@ function App() {
             path='/projects'
             element={<ProjectList props={projects} onAddProject={onAddProject} setErrors={setErrors}/>}
           />
+          <Route
+            path='/projects/:projectId'
+            element={<ProjectPage projects={projects}/>}
+          />
+
         </Routes>
         
           <div className='footer mt-auto'>
