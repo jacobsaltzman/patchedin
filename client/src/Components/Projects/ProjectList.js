@@ -14,9 +14,10 @@ console.log(props)
   }
 
   return (
-    <div className="project-page">
+    <div className="project-list-container">
       <button id="create-project-button" onClick={handleIsSeen}>{isSeen? 'New Project?': 'Nevermind'}</button>
       {isSeen? <div></div>: <ProjectCreate onAddProject={onAddProject} setErrors={setErrors} />}
+      <div className="project-list">
       {props ?
       props.map(project => (
         <ProjectCard
@@ -30,7 +31,7 @@ console.log(props)
         />
       ))
         :<h3>No projects yet.</h3>}
-
+      </div>
 
     </div>
   );
