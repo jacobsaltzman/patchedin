@@ -21,7 +21,7 @@ function ProjectCreate({onAddProject, setErrors}){
     user_id: id
   })
 
-  console.log(id)
+
 
   function handleChange(e) {
     const {name, value} = e.target;
