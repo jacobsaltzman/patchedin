@@ -108,3 +108,28 @@
   cursor: pointer;
   font-size: 18px;
 }
+
+.project-details{
+  width: 300px;
+    text-align: center;
+    padding: 2rem;
+    margin: 10px;
+    font-size: smaller;
+    transition: box-shadow .3s;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.project-details:hover{
+  box-shadow: #222222;
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.project-page{
+    max-width: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
