@@ -8,10 +8,10 @@ function ProjectCard({id, title, description, category, progress, user}) {
 
   return (
     <Link to={`/projects/${id}`} className="project-card" id={id}>
-      <div className='project-details'>
+      <div className={category}>
       <h2>{title}</h2>
       <p>{description}</p>
-      <p>{category}</p>
+      <p className='category'>{category}</p>
       <p>{progress}</p>
 
       </div>

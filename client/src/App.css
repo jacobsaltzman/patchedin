@@ -126,6 +126,10 @@
   padding:1em;
 }
 
+.project-card .app .category{
+  color: blue;
+}
+
 .project-card:hover, .project-card:focus{
   box-shadow: #222222;
   box-shadow: 0 0 11px rgba(33,33,33,.2);
@@ -133,6 +137,7 @@
   position:relative;
   z-index:5;
 }
+
 
 .project-list{
     max-width: 90vh;
@@ -143,3 +148,13 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+/* for use in the upcoming task part
+.task-card:nth-child(even){
+  background: #cfc;
+}
+
+.task-card:nth-child(3n){
+  background: #ccf;
+}
+*/
