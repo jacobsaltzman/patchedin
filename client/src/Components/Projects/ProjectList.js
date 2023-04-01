@@ -4,8 +4,10 @@ import ProjectCreate from './ProjectCreate';
 
 
 function ProjectList({props, onAddProject, setErrors}) {
-  const { projects } = props;
+
   const [isSeen, setIsSeen] = useState(true);
+
+console.log(props)
 
   function handleIsSeen(e){
     setIsSeen(!isSeen)
@@ -15,8 +17,8 @@ function ProjectList({props, onAddProject, setErrors}) {
     <div className="project-page">
       <button id="create-project-button" onClick={handleIsSeen}>{isSeen? 'New Project?': 'Nevermind'}</button>
       {isSeen? <div></div>: <ProjectCreate onAddProject={onAddProject} setErrors={setErrors} />}
-      {projects ?
-      projects.map(project => (
+      {props ?
+      props.map(project => (
         <ProjectCard
           id={project.id}
           key={project.id}
@@ -24,6 +26,7 @@ function ProjectList({props, onAddProject, setErrors}) {
           description={project.description}
           category={project.category}
           progress={project.progress}
+          user={project.user}
         />
       ))
         :<h3>No projects yet.</h3>}
