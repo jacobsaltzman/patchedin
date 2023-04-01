@@ -131,6 +131,18 @@
   color: blue;
 }
 
+.project-card .creative .category{
+  color: green;
+}
+
+.project-card .career .category{
+  color: purple;
+}
+
+.project-card .other .category{
+  color: orange;
+}
+
 .project-card:hover, .project-card:focus{
   box-shadow: #222222;
   box-shadow: 0 0 11px rgba(33,33,33,.2);
