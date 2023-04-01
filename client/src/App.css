@@ -124,6 +124,7 @@
   height:250px;
   width: 250px;
   padding:1em;
+  
 }
 
 .project-card .app .category{
@@ -136,6 +137,7 @@
   transform: scale(1.25);
   position:relative;
   z-index:5;
+  text-decoration:none;
 }
 
 

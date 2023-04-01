@@ -67,20 +67,17 @@ function ProjectCreate({onAddProject, setErrors}){
       
         <h4>Create A New Project</h4>
 
-        <label> Give A Title To The Project</label>
-        <input type="text" id="title" name="title" onChange={handleChange} value={formData.title}/>
-
         <label>What Type Of Project Is It?</label>
         <select name="category" id="category" onChange={handleChange} value={formData.category}>
           <option>Select One</option>
-          <option value="tech">Tech</option>
-          <option value="creative">Creative</option>
-          <option value="app">App Build</option>
-          <option value="general">General</option>
-          <option value="career">Career</option>
-          <option value="social">Social</option>
-          <option value="other">Other</option>
+          <option value="creative">Creative/Art/Craft</option>
+          <option value="app">Tech/App/Data</option>
+          <option value="career">Career/Social/Networking</option>
+          <option value="other">General/Other</option>
         </select>
+
+        <label> Give A Title To The Project</label>
+        <input type="text" id="title" name="title" onChange={handleChange} value={formData.title}/>
 
         <label>Write A Description Of The Concept</label>
         <input type="text" id="description" name="description" onChange={handleChange} value={formData.description}></input>
