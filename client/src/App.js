@@ -11,6 +11,8 @@ import UserPage from './Components/UserPage';
 import { UserContext } from './context/user';
 import ProjectList from './Components/Projects/ProjectList'
 import ProjectPage from './Components/Projects/ProjectPage';
+import logo2 from './images/PatchedInLogo2.png';
+import logo from './images/PatchedInLogo.png'
 
 
 function App() {
@@ -61,13 +63,13 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation/>
+      <Navigation logo2={logo2}/>
       {errors?errors.map(e => <h6 style={{color:'red'}}>{e.toUpperCase()}</h6>):null}
       <div className='d-flex flex-column vh-100'>
         <Routes>
           <Route 
           path='/'
-          element={<Home/>}
+          element={<Home logo={logo}/>}
           />
           <Route
           path='/signup'

@@ -5,7 +5,7 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 
 
-function Navigation(){
+function Navigation({logo2}){
 
   const nav = useNavigate();
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -22,7 +22,7 @@ function Navigation(){
   return(
 <Navbar bg="light" expand="lg" collapseOnSelect>
   <Navbar.Brand as={Link} to="/">
-    add image tag here
+  <img id="main-logo-image" alt="PatchedIn Logo" src={logo2} />
   </Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
