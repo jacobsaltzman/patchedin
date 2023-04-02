@@ -124,7 +124,7 @@
   height:250px;
   width: 250px;
   padding:1em;
-  
+  overflow: hidden;
 }
 
 .project-card .app .category{
@@ -150,6 +150,16 @@
   position:relative;
   z-index:5;
   text-decoration:none;
+}
+
+.project-card .hidden-p{
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.project-card:hover .hidden-p{
+  display: block;
+  opacity: 1;
 }
 
 
