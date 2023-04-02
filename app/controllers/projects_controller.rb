@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  #allow index before signin
+  skip_before_action :authorize, only: :index
 
   #GET /projects
   def index
