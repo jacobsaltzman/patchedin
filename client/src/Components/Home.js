@@ -22,7 +22,7 @@ function Home({logo}){
     </section>
 
       <div id="home-bottom-div">
-      {currentUser?<h5>Howdy, {currentUser.username}! </h5>:<h5>Become a <Link to="/signup">member</Link> or <Link to="/login">login</Link> to join the growing community of people working together.</h5>}<h5>You can browse the ongoing projects, add tasks and contributions to projects, and start building your own projects with others.</h5>
+      {currentUser?<h5>Howdy, {currentUser.username}! </h5>:<h5>Become a <Link to="/signup">member</Link> or <Link to="/login">login</Link> to join the growing community of people working together and get patched in!</h5>}<h5>You can browse the ongoing projects, add tasks and contributions to projects, and start building your own projects with others.</h5>
       </div>
       <div id="background-1"></div>
     </div>
