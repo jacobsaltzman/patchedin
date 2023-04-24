@@ -7,8 +7,6 @@ function ProjectList({props, onAddProject, setErrors}) {
 
   const [isSeen, setIsSeen] = useState(true);
 
-console.log(props)
-
   function handleIsSeen(e){
     setIsSeen(!isSeen)
   }
