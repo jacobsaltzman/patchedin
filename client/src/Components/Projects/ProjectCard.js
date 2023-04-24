@@ -3,9 +3,6 @@ import {Link} from 'react-router-dom'
 
 function ProjectCard({id, title, description, category, progress, user}) {
   
-  console.log(user)
-  //also add creator user data
-
   return (
     <Link to={`/projects/${id}`} className="project-card" id={id}>
       <div className={category}>
