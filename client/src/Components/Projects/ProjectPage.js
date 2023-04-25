@@ -8,12 +8,12 @@ function ProjectPage({projects}){
   const {projectId} = useParams();
   const projectArr = projects.filter((proj) => Number(proj.id) === Number(projectId))
   const project = projectArr[0];
-  
+
   if (project) {
     const {id, title, tasks, progress, user, description, category} = project;
 
 
-    
+
     return (
       <div className="individual-project-page">
         <div id="project-title">
