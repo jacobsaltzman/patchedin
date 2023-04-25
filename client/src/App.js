@@ -60,6 +60,11 @@ function App() {
     setProjects([...projects, newProject])
   }
 
+  function onDeleteProject(deletedProjectId){
+    const updatedProjects = projects.filter((project) => project.id !== deletedProjectId)
+    setProjects(updatedProjects)
+  }
+
 
   return (
     <div className="App">
@@ -81,7 +86,7 @@ function App() {
           />
           <Route 
         path='/users/:id'
-        element={<UserPage />}
+        element={<UserPage setErrors={setErrors} onDeleteProject={onDeleteProject} />}
           />
           <Route
             path='/about'
