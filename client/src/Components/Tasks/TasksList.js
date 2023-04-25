@@ -5,14 +5,15 @@ import TasksCard from "../Tasks/TasksCard";
 function TasksList({projectId, tasks}){
 
   const [isSeen, setIsSeen] = useState(true);
-  const [allTasks, setAllTasks] = useState([tasks])
+  const [allTasks, setAllTasks] = useState(tasks)
 
   function handleIsSeen(e){
     setIsSeen(!isSeen)
   }
 
   function onAddTask(newTask){
-    setAllTasks([...allTasks, newTask])
+    const updatedTasks = [...allTasks, newTask];
+    setAllTasks(updatedTasks);
   }
   
 
@@ -30,6 +31,7 @@ function TasksList({projectId, tasks}){
       {allTasks ?
         allTasks.map(task => (
           <TasksCard
+            key={task.id}
             id={task.id}
             description={task.description}
             difficulty={task.difficulty}

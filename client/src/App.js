@@ -13,6 +13,7 @@ import ProjectList from './Components/Projects/ProjectList'
 import ProjectPage from './Components/Projects/ProjectPage';
 import logo2 from './images/PatchedInLogo2.png';
 import logo from './images/PatchedInLogo.png'
+import TaskPage from './Components/Tasks/TaskPage'
 
 
 function App() {
@@ -99,6 +100,10 @@ function App() {
           <Route
             path='/projects/:projectId'
             element={<ProjectPage projects={projects}/>}
+          />
+          <Route
+            path='/tasks/:taskId'
+            element={<TaskPage />}
           />
 
         </Routes>
