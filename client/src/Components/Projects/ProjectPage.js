@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import TasksList from "../Tasks/TasksList";
 
 
 function ProjectPage({projects}){
@@ -8,11 +9,10 @@ function ProjectPage({projects}){
   const projectArr = projects.filter((proj) => Number(proj.id) === Number(projectId))
   const project = projectArr[0];
   
-
   if (project) {
-    const {id, title, progress, user, description, category} = project;
+    const {id, title, tasks, progress, user, description, category} = project;
 
-    console.log(id)
+
     
     return (
       <div className="individual-project-page">
@@ -32,6 +32,7 @@ function ProjectPage({projects}){
 
         <div id="project-tasks">
         <h6>Tasks:</h6>
+        < TasksList projectId={id} tasks={tasks}/>
         </div>
 
       </div>
