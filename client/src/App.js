@@ -18,7 +18,7 @@ import TaskPage from './Components/Tasks/TaskPage'
 
 function App() {
 
-  const { setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   const [errors, setErrors] = useState(false);
   const [projects, setProjects] = useState([]);
 
@@ -58,12 +58,21 @@ function App() {
 
 
   function onAddProject(newProject){
-    setProjects([...projects, newProject])
+   // update global projects list
+   setProjects([...projects, newProject])
+
+   // update user's projects list
+   const updatedUser = { ...currentUser, projects: [...currentUser.projects, newProject] }
+   setCurrentUser(updatedUser)
   }
 
   function onDeleteProject(deletedProjectId){
     const updatedProjects = projects.filter((project) => project.id !== deletedProjectId)
-    setProjects(updatedProjects)
+
+  // update global projects list
+  setProjects(updatedProjects)
+
+
   }
 
 
