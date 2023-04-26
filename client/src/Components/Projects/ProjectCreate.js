@@ -82,8 +82,6 @@ function ProjectCreate({onAddProject, setErrors}){
         <label>Write A Description Of The Concept</label>
         <input type="text" id="description" name="description" onChange={handleChange} value={formData.description}></input>
 
-        <label>What Percentage Of The Project Is Already Complete?</label>
-        <input type="number" id="progress" name="progress" onChange={handleChange} value={formData.progress}/>
 
         <button type="submit">Start Project</button>
       </form>
