@@ -40,9 +40,8 @@ function Navigation({logo2}){
          :
          <NavDropdown title="Projects" id="basic-nav-dropdown" className="text-dark mr-3">
           <NavDropdown.Item as={Link} to="/projects">All Projects</NavDropdown.Item>
-          <NavDropdown.Item as={Link} to="/search">Search For Project</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item as={Link}to={`/users/${currentUser.id}`}>My Account</NavDropdown.Item>
+          <NavDropdown.Item as={Link}to={`/users/${currentUser.id}`}>My Stuff</NavDropdown.Item>
         </NavDropdown>}
     </Nav>
   </Navbar.Collapse>
