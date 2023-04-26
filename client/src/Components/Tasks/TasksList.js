@@ -17,10 +17,6 @@ function TasksList({projectId, tasks}){
   }
   
 
-    console.log("Project num: " + projectId)
-    console.log("Task difficulty: " + allTasks[2].difficulty)
-
-
   return(
     <div>
        <button id="create-project-button" onClick={handleIsSeen}>{isSeen? 'New Task?': 'Nevermind'}</button>
