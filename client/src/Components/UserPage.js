@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { UserContext } from "../context/user";
 
 
-function UserPage({setErrors, onDeleteProject}) {
+function UserPage({setErrors, onDeleteProject, onUpdateProject}) {
   const { currentUser } = useContext(UserContext);
   const [editableProjectId, setEditableProjectId] = useState(null);
   const [userProjects, setUserProjects] = useState([]);
@@ -54,6 +54,7 @@ function UserPage({setErrors, onDeleteProject}) {
           );
           setUserProjects(updatedProjects);
           setEditableProjectId(null);
+          onUpdateProject(data)
         });
       } else {
         res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))

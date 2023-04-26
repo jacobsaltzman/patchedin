@@ -72,7 +72,17 @@ function App() {
   // update global projects list
   setProjects(updatedProjects)
 
+  }
 
+  function onUpdateProject(updatedProject){
+    const updatedProjects = projects.map((project) => {
+      if (project.id === updatedProject.id) {
+        return updatedProject;
+      } else {
+        return project;
+      }
+    });
+    setProjects(updatedProjects);
   }
 
 
@@ -96,7 +106,7 @@ function App() {
           />
           <Route 
         path='/users/:id'
-        element={<UserPage setErrors={setErrors} onDeleteProject={onDeleteProject} />}
+        element={<UserPage setErrors={setErrors} onDeleteProject={onDeleteProject} onUpdateProject={onUpdateProject}/>}
           />
           <Route
             path='/about'
