@@ -92,6 +92,7 @@ function UserPage({setErrors, onDeleteProject, onUpdateProject}) {
       <h3>{currentUser.username}</h3>
       <p>Member since {currentUser.creationDate}</p>
       <h5>My Projects</h5>
+      <div className="user-project-card">
       <ul>
         {userProjects.map((project) => (
           <li key={project.id}>
@@ -148,6 +149,7 @@ function UserPage({setErrors, onDeleteProject, onUpdateProject}) {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 }

@@ -25,9 +25,8 @@ function TasksList({projectId, tasks}){
     <div>
        <button id="create-project-button" onClick={handleIsSeen}>{isSeen? 'New Task?': 'Nevermind'}</button>
         {isSeen? <div></div>: <TaskCreate onAddTask={onAddTask} id={projectId}/>}
-      <p>check check</p>
-
-      <div id="task-list">
+  
+      <div className="task-list">
       {allTasks ?
         allTasks.map(task => (
           <TasksCard
