@@ -6,6 +6,9 @@ function UserPage({setErrors, onDeleteProject}) {
   const { currentUser } = useContext(UserContext);
   const [editableProjectId, setEditableProjectId] = useState(null);
   const [userProjects, setUserProjects] = useState([]);
+  const [formData, setFormData] = useState({});
+
+  console.log(formData)
 
   useEffect(() => {
     if (currentUser) {
@@ -15,7 +18,48 @@ function UserPage({setErrors, onDeleteProject}) {
 
 
   const handleEditClick = (projectId) => {
-    setEditableProjectId(projectId);
+    const project = userProjects.find(p => p.id === projectId);
+    setFormData({
+      description: project.description,
+      progress: project.progress
+    });
+    if (editableProjectId === projectId) {
+      setEditableProjectId(null);
+      setFormData({});
+    } else {
+      setEditableProjectId(projectId);
+    }
+  };
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  }
+
+  const handleSaveClick = (projectId) => {
+    fetch(`/projects/${projectId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        description: formData.description,
+        progress: formData.progress
+      })
+    })
+    .then(res => {
+      if (res.ok) {
+        res.json().then(data => {
+          const updatedProjects = userProjects.map(
+            (p) => p.id === projectId ? { ...p, ...data } : p
+          );
+          setUserProjects(updatedProjects);
+          setEditableProjectId(null);
+        });
+      } else {
+        res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+      }
+    });
   };
 
   const handleDeleteClick = (projectId) => {
@@ -51,25 +95,42 @@ function UserPage({setErrors, onDeleteProject}) {
       <ul>
         {userProjects.map((project) => (
           <li key={project.id}>
+            
             <h4>{project.title}</h4>
+
             <p>Category: {project.category}</p>
+
             <p>Description: {editableProjectId === project.id ? (
-              <input type="text" value={project.description} onChange={(e) => {
-                // TODO: Implement logic to update the project's description
-              }} />
+              <input
+              type="text"
+              name="description"
+              value={formData.description || project.description}
+              onChange={(e) => handleChange(e)}
+            />
             ) : (
               project.description
             )}</p>
+
             <p>Progress: {editableProjectId === project.id ? (
-              <input type="text" value={project.progress} onChange={(e) => {
-                // TODO: Implement logic to update the project's progress
-              }} />
+              <input
+              type="integer"
+              name="progress"
+              value={formData.progress || project.progress}
+              onChange={(e) => handleChange(e)}
+            />
             ) : (
               project.progress
             )}</p>
+
             <button onClick={() => handleEditClick(project.id)}>
-              {editableProjectId === project.id ? "Save" : "Edit"}
+              {editableProjectId === project.id ? "Nevermind" : "Edit"}
             </button>
+
+            {editableProjectId === project.id && (
+              <button onClick={() => handleSaveClick(project.id)}>
+                Save
+              </button>
+)}
             <button onClick={() => handleDeleteClick(project.id)}>
               Delete
             </button>
