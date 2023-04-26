@@ -1,10 +1,9 @@
 class ContributionSerializer < ActiveModel::Serializer
-  attributes :id, :report
+  attributes :id, :report, :username
   belongs_to :user
   belongs_to :task 
 
-  # def creator
-  #   creator = object.user
-  #   creator.username
-  # end 
+  def username
+  object.user.username
+  end
 end
