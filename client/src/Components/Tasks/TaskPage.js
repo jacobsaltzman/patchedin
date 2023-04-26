@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/user";
 
@@ -9,6 +9,13 @@ function TaskPage(){
   const { currentUser } = useContext(UserContext);
   const [messages, setMessages] = useState([]); 
   const [inputValue, setInputValue] = useState(""); 
+
+
+  useEffect(() => {
+    fetch(`/tasks/${taskId}`)
+      .then((r) => r.json())
+      .then((data) => setMessages(data.contributions))
+  }, [taskId])
 
   const handleSubmit = (event) => {
     event.preventDefault();  
@@ -30,7 +37,7 @@ function TaskPage(){
       })
           .then((r) => r.json())
           .then((data) => {
-            setMessages([...messages, data.report]); 
+            setMessages([...messages, { report: data.report, username: currentUser.username }]);
             setInputValue(""); 
             console.log( data )
           });
@@ -43,11 +50,12 @@ function TaskPage(){
   return (
     <div className="chat-page">
       <div className="message-container">
-        {messages.slice(0, 30).reverse().map((message, index) => (
+      {messages.slice(0, 30).reverse().map((message, index) => (
           <div className="message" key={index}>
-            {message}
-          </div>
-        ))}
+          <span className="username">{message.username}: </span>
+          <span className="text">{message.report}</span>
+  </div>
+))}
       </div>
       <form onSubmit={handleSubmit} className="input-form">
         <input
