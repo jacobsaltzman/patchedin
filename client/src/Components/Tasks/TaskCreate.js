@@ -60,10 +60,12 @@ function TaskCreate({id, onAddTask}){
         <label>How difficult is the Task?</label>
         <select name="difficulty" id="difficulty" onChange={handleChange} value={formData.difficulty}>
           <option>Select One</option>
-          <option value="na">N/A</option>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
+          <option value="">N/A</option>
+          <option value="1">Easy</option>
+          <option value="2">Medium</option>
+          <option value="3">Hard</option>
+          <option value="4">Extreme</option>
+
         </select>
 
         <button type="submit">Post Task</button>
