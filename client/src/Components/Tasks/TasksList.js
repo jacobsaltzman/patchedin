@@ -18,7 +18,7 @@ function TasksList({projectId, tasks}){
   
 
     console.log("Project num: " + projectId)
-    console.log("Tasks: " + allTasks)
+    console.log("Task difficulty: " + allTasks[2].difficulty)
 
 
   return(
@@ -34,7 +34,6 @@ function TasksList({projectId, tasks}){
             id={task.id}
             description={task.description}
             difficulty={task.difficulty}
-            completed={task.completed}
             />
           ))
           :<h3>No tasks yet.</h3>}
