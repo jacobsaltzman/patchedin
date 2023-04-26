@@ -8,7 +8,6 @@ function UserPage({setErrors, onDeleteProject}) {
   const [userProjects, setUserProjects] = useState([]);
   const [formData, setFormData] = useState({});
 
-  console.log(formData)
 
   useEffect(() => {
     if (currentUser) {
@@ -104,7 +103,11 @@ function UserPage({setErrors, onDeleteProject}) {
               <input
               type="text"
               name="description"
-              value={formData.description || project.description}
+              value={
+                formData.description !== undefined
+                  ? formData.description
+                  : project.description
+              }
               onChange={(e) => handleChange(e)}
             />
             ) : (
@@ -113,9 +116,16 @@ function UserPage({setErrors, onDeleteProject}) {
 
             <p>Progress: {editableProjectId === project.id ? (
               <input
-              type="integer"
+              type="range"
+              min="0"
+              max="100"
+              step="1"
               name="progress"
-              value={formData.progress || project.progress}
+              value={
+                formData.progress !== undefined
+                  ? formData.progress
+                  : project.progress
+              }
               onChange={(e) => handleChange(e)}
             />
             ) : (
