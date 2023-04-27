@@ -85,6 +85,19 @@ function App() {
     setProjects(updatedProjects);
   }
 
+  function updateProjectTasks(projectId, newTasks) {
+    setProjects(prevProjects => prevProjects.map(project => {
+      if (project.id === projectId) {
+        return {
+          ...project,
+          tasks: newTasks
+        };
+      } else {
+        return project;
+      }
+    }));
+  }
+
 
   return (
     <div className="App">
@@ -118,7 +131,7 @@ function App() {
           />
           <Route
             path='/projects/:projectId'
-            element={<ProjectPage projects={projects}/>}
+            element={<ProjectPage updateProjectTasks={updateProjectTasks} projects={projects}/>}
           />
           <Route
             path='/tasks/:taskId'

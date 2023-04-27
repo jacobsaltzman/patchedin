@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import TasksList from "../Tasks/TasksList";
 
 
-function ProjectPage({projects}){
+function ProjectPage({projects, updateProjectTasks}){
 
   const {projectId} = useParams();
   const projectArr = projects.filter((proj) => Number(proj.id) === Number(projectId))
@@ -32,7 +32,7 @@ function ProjectPage({projects}){
 
         <div id="project-tasks">
         <h6>Tasks:</h6>
-        < TasksList projectId={id} tasks={tasks}/>
+        < TasksList updateProjectTasks={updateProjectTasks} projectId={id} tasks={tasks}/>
         </div>
 
       </div>

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import TaskCreate from "../Tasks/TaskCreate";
 import TasksCard from "../Tasks/TasksCard";
 
-function TasksList({projectId, tasks}){
+function TasksList({projectId, tasks, updateProjectTasks}){
 
   const [isSeen, setIsSeen] = useState(true);
   const [allTasks, setAllTasks] = useState(tasks)
@@ -14,6 +14,7 @@ function TasksList({projectId, tasks}){
   function onAddTask(newTask){
     const updatedTasks = [...allTasks, newTask];
     setAllTasks(updatedTasks);
+    updateProjectTasks(projectId, updatedTasks)
   }
   
 
