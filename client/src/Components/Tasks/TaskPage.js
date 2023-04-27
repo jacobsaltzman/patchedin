@@ -49,6 +49,7 @@ function TaskPage(){
 
   return (
     <div className="chat-page">
+      <p>Make your contribution by entering a message below. Discuss plans, helpful insights, and actions with others working on the task, too.</p>
       <div className="message-container">
       {messages.slice(0, 30).reverse().map((message, index) => (
           <div className="message" key={index}>
