@@ -3,7 +3,7 @@ import { UserContext } from "../context/user";
 
 
 function UserPage({setErrors, onDeleteProject, onUpdateProject}) {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   const [editableProjectId, setEditableProjectId] = useState(null);
   const [userProjects, setUserProjects] = useState([]);
   const [formData, setFormData] = useState({});
@@ -55,6 +55,8 @@ function UserPage({setErrors, onDeleteProject, onUpdateProject}) {
           setUserProjects(updatedProjects);
           setEditableProjectId(null);
           onUpdateProject(data)
+          const updatedUser = { ...currentUser, projects: updatedProjects };
+          setCurrentUser(updatedUser);
         });
       } else {
         res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))

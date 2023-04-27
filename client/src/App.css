@@ -407,3 +407,45 @@
   font-weight: 500;
   margin-bottom: 4px;
 }
+
+.progress-bar {
+  height: 20px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.progress-bar > div {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress-bar .bar-0_20 {
+  background-color: red;
+  width: 20%;
+}
+
+.progress-bar .bar-20_40 {
+  background-color: orange;
+  width: 20%;
+  left: 20%;
+}
+
+.progress-bar .bar-40_60 {
+  background-color: yellow;
+  width: 20%;
+  left: 40%;
+}
+
+.progress-bar .bar-60_80 {
+  background-color: blue;
+  width: 20%;
+  left: 60%;
+}
+
+.progress-bar .bar-80_100 {
+  background-color: green;
+  width: 20%;
+  left: 80%;
+}

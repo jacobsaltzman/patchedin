@@ -27,7 +27,15 @@ function ProjectPage({projects, updateProjectTasks}){
         </div>
         
         <div className="progress-details">
-        <h6>Progress Bar</h6> <p>{progress}</p>
+          <h6>Progress Bar:</h6>
+          {progress === 100 && <span className="completed-icon">✨Project Completed!✨</span>}
+          <div className="progress-bar">
+            <div
+              className={`bar-${Math.floor(progress / 20) * 20}_${
+                Math.floor(progress / 20) * 20 + 20
+              }`}
+            ></div>
+          </div>
         </div>
 
         <div id="project-tasks">
