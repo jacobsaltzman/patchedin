@@ -118,7 +118,7 @@ function UserPage({setErrors, onDeleteProject, onUpdateProject}) {
               project.description
             )}</p>
 
-            <p>Progress: {editableProjectId === project.id ? (
+            <p>Progress (approx. %): {editableProjectId === project.id ? (
               <input
               type="range"
               min="0"
