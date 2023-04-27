@@ -295,7 +295,7 @@
   margin-bottom: 3%;
 }
 
-.user-project-card{
+.user-project-card li{
   text-align: center;
   padding: 2rem;
   margin: 10px;
@@ -311,6 +311,16 @@
   border-radius: 5px;
   border-bottom: 5px solid;
   border: 1px solid;
+}
+
+.user-project-card{
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .chat-page {
