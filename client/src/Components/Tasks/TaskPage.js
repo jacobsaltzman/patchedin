@@ -2,14 +2,44 @@ import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/user";
 
+const ws = new WebSocket("ws://localhost:3000/cable");
 
 function TaskPage(){
 
   const {taskId} = useParams();
   const { currentUser } = useContext(UserContext);
   const [messages, setMessages] = useState([]); 
+  const [guid, setGuid] = useState("");
   const [inputValue, setInputValue] = useState(""); 
 
+  ws.onopen = () => {
+    console.log("Connected to websocket server");
+    setGuid(Math.random().toString(36).substring(2, 15));
+
+    ws.send(
+      JSON.stringify({
+        command: "subscribe",
+        identifier: JSON.stringify({
+          id: guid,
+          channel: "MessagesChannel",
+        }),
+      })
+    );
+  };
+
+  ws.onmessage = (e) => {
+    const data = JSON.parse(e.data);
+    if (data.type === "ping") return;
+    if (data.type === "welcome") return;
+    if (data.type === "confirm_subscription") return;
+
+    console.log(data)
+    setMessages([...messages, { report: data.message.report, username: data.message.username }]);
+  };
+
+  ws.onerror = (error) => {
+    console.error("WebSocket error:", error);
+  };
 
   useEffect(() => {
     fetch(`/tasks/${taskId}`)
@@ -17,7 +47,8 @@ function TaskPage(){
       .then((data) => setMessages(data.contributions))
   }, [taskId])
 
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();  
     if (inputValue !== "") { 
       
@@ -27,7 +58,7 @@ function TaskPage(){
         report: inputValue,
       };
 
-      fetch("/contributions", {
+      await fetch("/contributions", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -37,9 +68,8 @@ function TaskPage(){
       })
           .then((r) => r.json())
           .then((data) => {
-            setMessages([...messages, { report: data.report, username: currentUser.username }]);
+            //setMessages([...messages, { report: data.report, username: currentUser.username }]);
             setInputValue(""); 
-            console.log( data )
           });
           
       };
@@ -51,7 +81,7 @@ function TaskPage(){
     <div className="chat-page">
       <p>Make your contribution by entering a message below. Discuss plans, helpful insights, and actions with others working on the task, too.</p>
       <div className="message-container">
-      {messages.slice(0, 30).reverse().map((message, index) => (
+      {messages.slice().reverse().map((message, index) => (
           <div className="message" key={index}>
           <span className="username">{message.username}: </span>
           <span className="text">{message.report}</span>
