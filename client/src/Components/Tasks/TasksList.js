@@ -31,6 +31,7 @@ function TasksList({projectId, tasks, updateProjectTasks}){
             id={task.id}
             description={task.description}
             difficulty={task.difficulty}
+            projectId = {projectId}
             />
           ))
           :<h3>No tasks yet.</h3>}

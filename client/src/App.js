@@ -134,7 +134,7 @@ function App() {
             element={<ProjectPage updateProjectTasks={updateProjectTasks} projects={projects}/>}
           />
           <Route
-            path='/tasks/:taskId'
+            path='/projects/:projectId/tasks/:taskId'
             element={<TaskPage />}
           />
 

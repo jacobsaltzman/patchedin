@@ -9,12 +9,12 @@ const difficultyMap = {
   4: { label: 'Extreme', color: 'red' },
 };
 
-function TasksCard({id, difficulty, description }) {
+function TasksCard({id, difficulty, description, projectId }) {
 
   const { label, color } = difficultyMap[difficulty];
   
   return (
-    <Link to={`/tasks/${id}`} className="task-card" id={id}>
+    <Link to={`/projects/${projectId}/tasks/${id}`} className="task-card" id={id}>
       <div className="task-info">
       <p className='description'>{description}</p>
       <p className='difficulty' style={{ color }}>{label}</p>
