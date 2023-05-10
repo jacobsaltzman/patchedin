@@ -37,6 +37,7 @@ gem "bootsnap", require: false
 gem "rack-cors"
 
 gem 'mail'
+gem 'letter_opener'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
