@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :contributions
   resources :tasks
   resources :projects
+  resources :subscribers, only: [:create]
   
   #custom routes for user sessions capability
   get '/me', to: 'users#show'

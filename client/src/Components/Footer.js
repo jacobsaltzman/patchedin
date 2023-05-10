@@ -8,7 +8,7 @@ function Footer() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch('/subscribe.php', {
+    fetch('/subscribers', {
       method: 'POST',
       body: JSON.stringify({ email }),
       headers: {
@@ -18,6 +18,8 @@ function Footer() {
     .then(response => {
       if (response.ok) {
         console.log('Thanks for subscribing!');
+        console.log(response)
+        setEmail("")
       } else {
         console.error('Failed to subscribe:', response.statusText);
       }
